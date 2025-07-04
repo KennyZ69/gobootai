@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/KennyZ69/gobootai"
 	"os"
 )
 
@@ -17,10 +18,11 @@ func main() {
 
 	prompt := os.Args[1]
 	flag.Parse()
+	fmt.Println("prompt:", prompt)
 
-	resp, err := GenerateResponse(prompt, *verbose)
+	resp, err := gobootai.GenerateResponse(prompt, *verbose)
 	if err != nil {
-		fmt.println("Error:", err)
+		fmt.Println("Error:", err)
 		os.Exit(1)
 	}
 
